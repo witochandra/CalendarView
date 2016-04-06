@@ -387,15 +387,13 @@ extension CalendarView: UIGestureRecognizerDelegate {
                 }
             }
             if self.beginIndex != beginIndex || self.endIndex != endIndex {
+                if let index = self.beginIndex where index != beginIndex {
+                    delegate?.calendarView(self, didUpdateBeginDate: firstDate.dateByAddingDay(index))
+                }
+                if let index = self.endIndex where index != endIndex {
+                    delegate?.calendarView(self, didUpdateFinishDate: firstDate.dateByAddingDay(index))
+                }
                 collectionView.reloadData()
-            }
-            
-            switch gestureRecognizer.state {
-            case .Ended:
-                delegate?.calendarView(self, didUpdateBeginDate: firstDate.dateByAddingDay(beginIndex))
-                delegate?.calendarView(self, didUpdateFinishDate: firstDate.dateByAddingDay(endIndex))
-            default:
-                break
             }
         }
     }
