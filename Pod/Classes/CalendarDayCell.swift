@@ -27,23 +27,15 @@ public class CalendarDayCell: UICollectionViewCell {
     private(set) var state = CalendarDayCellState.Normal
     private(set) var date = NSDate()
     
-    public var selectedCircleColor = UIColor(hex: 0x2d4059)
-    public var rangeColor = UIColor(hex: 0x2d4059, alpha: 0.5)
-    public var normalTextColor = UIColor.blackColor()
-    public var disabledTextColor = UIColor(hex: 0xb6bcc2)
-    public var selectedTextColor = UIColor.whiteColor()
-    public var currentMonthBackgroundColor = UIColor.whiteColor()
-    public var notCurrentMonthBackgroundColor = UIColor(hex: 0xedf1f4)
-    
     public override func awakeFromNib() {
         super.awakeFromNib()
     
-        viewSelectedCircle.backgroundColor = selectedCircleColor
+        viewSelectedCircle.backgroundColor = CalendarViewTheme.instance.colorForSelectedDate
         viewSelectedCircle.layer.cornerRadius = viewSelectedCircle.frame.width / 2
         viewSelectedCircle.layer.masksToBounds = true
         
-        viewPreviousRange.backgroundColor = rangeColor
-        viewNextRange.backgroundColor = rangeColor
+        viewPreviousRange.backgroundColor = CalendarViewTheme.instance.colorForDatesRange
+        viewNextRange.backgroundColor = CalendarViewTheme.instance.colorForDatesRange
     }
     
     public func updateWithDate(date: NSDate, state: CalendarDayCellState, isCurrentMonth: Bool) {
@@ -54,38 +46,40 @@ public class CalendarDayCell: UICollectionViewCell {
         let components = calendar.components(.Day, fromDate: date)
         labelDay.text = "\(components.day)"
         
+        viewSelectedCircle.backgroundColor = CalendarViewTheme.instance.colorForSelectedDate
+        
         if isCurrentMonth {
-            viewBackground.backgroundColor = currentMonthBackgroundColor
+            viewBackground.backgroundColor = CalendarViewTheme.instance.bgColorForCurrentMonth
         } else {
-            viewBackground.backgroundColor = notCurrentMonthBackgroundColor
+            viewBackground.backgroundColor = CalendarViewTheme.instance.bgColorForOtherMonth
         }
         switch state {
         case .Normal:
             if isCurrentMonth {
-                labelDay.textColor = normalTextColor
+                labelDay.textColor = CalendarViewTheme.instance.textColorForNormalDay
             } else {
-                labelDay.textColor = disabledTextColor
+                labelDay.textColor = CalendarViewTheme.instance.textColorForDisabledDay
             }
             viewSelectedCircle.hidden = true
             viewNextRange.hidden = true
             viewPreviousRange.hidden = true
         case .Disabled:
-            labelDay.textColor = disabledTextColor
+            labelDay.textColor = CalendarViewTheme.instance.textColorForDisabledDay
             viewSelectedCircle.hidden = true
             viewNextRange.hidden = true
             viewPreviousRange.hidden = true
         case let .Start(hasNext):
-            labelDay.textColor = selectedTextColor
+            labelDay.textColor = CalendarViewTheme.instance.textColorForSelectedDay
             viewSelectedCircle.hidden = false
             viewNextRange.hidden = !hasNext
             viewPreviousRange.hidden = true
         case .Range:
-            labelDay.textColor = normalTextColor
+            labelDay.textColor = CalendarViewTheme.instance.textColorForNormalDay
             viewSelectedCircle.hidden = true
             viewNextRange.hidden = false
             viewPreviousRange.hidden = false
         case .End:
-            labelDay.textColor = selectedTextColor
+            labelDay.textColor = CalendarViewTheme.instance.textColorForSelectedDay
             viewSelectedCircle.hidden = false
             viewNextRange.hidden = true
             viewPreviousRange.hidden = false

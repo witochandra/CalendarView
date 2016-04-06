@@ -13,6 +13,7 @@ public class CalendarView: UIView {
     @IBOutlet private var viewBackground: UIView!
     @IBOutlet private var viewTitleContainer: UIView!
     @IBOutlet private var viewDaysOfWeekContainer: UIView!
+    @IBOutlet private var viewDivider: UIView!
     @IBOutlet private var collectionView: UICollectionView!
     @IBOutlet private var labelTitle: UILabel!
     @IBOutlet private var labelSunday: UILabel!
@@ -62,18 +63,6 @@ public class CalendarView: UIView {
             return nil
         }
         return firstDate.dateByAddingDay(index)
-    }
-    
-    public var titleContainerColor = UIColor.whiteColor() {
-        didSet {
-            viewTitleContainer.backgroundColor = titleContainerColor
-        }
-    }
-    
-    public var daysOfWeekContainerColor = UIColor.whiteColor() {
-        didSet {
-            viewDaysOfWeekContainer.backgroundColor = titleContainerColor
-        }
     }
     
     public var imagePreviousName = "ic_arrow_left_blue.png" {
@@ -144,11 +133,12 @@ public class CalendarView: UIView {
         collectionView.registerNib(UINib(nibName: "CalendarDayCell", bundle: CalendarViewUtils.instance.bundle), forCellWithReuseIdentifier: "DayCell")
         
         updateMonthYearViews()
-        collectionView.reloadData()
+        
+        reload()
     }
     
     public func scrollToMonthOfDate(date: NSDate) {
-        if date.compare(maxDate) != .OrderedDescending && date.compare(minDate) != .OrderedAscending {
+        if date.compare(maxDate.firstDayOfCurrentMonth()) != .OrderedDescending && date.compare(firstDate) != .OrderedAscending {
             currentFirstDayOfMonth = date.firstDayOfCurrentMonth()
             let calendar = CalendarViewUtils.instance.calendar
             let diff = calendar.components(.Day, fromDate: firstDate, toDate: currentFirstDayOfMonth, options: [])
@@ -199,6 +189,20 @@ public class CalendarView: UIView {
     }
     
     public func reload() {
+        viewTitleContainer.backgroundColor = CalendarViewTheme.instance.bgColorForMonthContainer
+        viewDaysOfWeekContainer.backgroundColor = CalendarViewTheme.instance.bgColorForDaysOfWeekContainer
+        viewBackground.backgroundColor = CalendarViewTheme.instance.bgColorForOtherMonth
+        labelSunday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
+        labelMonday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
+        labelTuesday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
+        labelWednesday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
+        labelThursday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
+        labelFriday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
+        labelSaturday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
+        viewDivider.backgroundColor = CalendarViewTheme.instance.colorForDivider
+        
+        labelTitle.textColor = CalendarViewTheme.instance.textColorForTitle
+        
         collectionView.reloadData()
     }
 }
@@ -290,7 +294,7 @@ extension CalendarView: UICollectionViewDataSource, UICollectionViewDelegateFlow
     
     public func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
         let width = widthForCellAtIndexPath(indexPath)
-        return CGSize(width: width, height: 44)
+        return CGSize(width: width, height: 38)
     }
     
     public func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {

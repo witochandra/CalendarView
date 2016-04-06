@@ -18,21 +18,21 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lZc-3n-4VY" customClass="CalendarView" customModule="CalendarView">
-                                <rect key="frame" x="0.0" y="20" width="600" height="328"/>
+                                <rect key="frame" x="0.0" y="50" width="600" height="292"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="328" id="kN9-vg-hvc"/>
+                                    <constraint firstAttribute="height" constant="292" id="kN9-vg-hvc"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rxK-dh-ZFT">
-                                <rect key="frame" x="20" y="356" width="42" height="30"/>
+                                <rect key="frame" x="20" y="350" width="42" height="30"/>
                                 <state key="normal" title="Today"/>
                                 <connections>
                                     <action selector="buttonTodayPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ein-XG-M7r"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xbJ-tu-xZq">
-                                <rect key="frame" x="511" y="356" width="69" height="30"/>
+                                <rect key="frame" x="511" y="350" width="69" height="30"/>
                                 <state key="normal" title="Tomorrow"/>
                                 <connections>
                                     <action selector="buttonTomorrowPressed" destination="BYZ-38-t0r" eventType="touchUpInside" id="VZZ-ys-o1i"/>
@@ -43,7 +43,7 @@
                         <constraints>
                             <constraint firstItem="rxK-dh-ZFT" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="6SP-DL-wSb"/>
                             <constraint firstAttribute="trailing" secondItem="lZc-3n-4VY" secondAttribute="trailing" id="Bd9-9C-Kwy"/>
-                            <constraint firstItem="lZc-3n-4VY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="gMJ-Dk-sDO"/>
+                            <constraint firstItem="lZc-3n-4VY" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="30" id="gMJ-Dk-sDO"/>
                             <constraint firstItem="rxK-dh-ZFT" firstAttribute="top" secondItem="lZc-3n-4VY" secondAttribute="bottom" constant="8" id="kNh-uM-KGa"/>
                             <constraint firstItem="lZc-3n-4VY" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="s1s-TX-XZC"/>
                             <constraint firstItem="xbJ-tu-xZq" firstAttribute="top" secondItem="lZc-3n-4VY" secondAttribute="bottom" constant="8" id="tWK-om-rwg"/>

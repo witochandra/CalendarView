@@ -8,6 +8,8 @@
 
 import UIKit
 
+import CalendarView
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -15,7 +17,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        CalendarViewTheme.instance.bgColorForMonthContainer = UIColor(hex: 0xE0E3E6)
+        CalendarViewTheme.instance.bgColorForDaysOfWeekContainer = UIColor(hex: 0xE0E3E6)
+        CalendarViewTheme.instance.bgColorForCurrentMonth = UIColor(hex: 0xE0E3E6)
+        CalendarViewTheme.instance.bgColorForOtherMonth = UIColor(hex: 0xE0E3E6)
+        CalendarViewTheme.instance.textColorForTitle = UIColor(hex: 0x334D63)
+        CalendarViewTheme.instance.textColorForNormalDay = UIColor(hex: 0x334D63)
+        CalendarViewTheme.instance.textColorForDisabledDay = UIColor(hex: 0xB6BCC2)
+        CalendarViewTheme.instance.textColorForSelectedDay = UIColor.whiteColor()
+        CalendarViewTheme.instance.textColorForDayOfWeek = UIColor(hex: 0x334D63)
+        CalendarViewTheme.instance.colorForSelectedDate = UIColor(hex: 0x334D63)
+        CalendarViewTheme.instance.colorForDatesRange = UIColor(hex: 0x334D63, alpha: 0.1)
+        CalendarViewTheme.instance.colorForDivider = UIColor(hex: 0xCFCFCF)
+        
         return true
     }
 
@@ -40,7 +54,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
 
+
+extension UIColor {
+    convenience init(hex: Int, alpha: CGFloat = 1.0) {
+        let red = CGFloat((hex & 0xFF0000) >> 16) / 255.0
+        let green = CGFloat((hex & 0xFF00) >> 8) / 255.0
+        let blue = CGFloat((hex & 0xFF)) / 255.0
+        self.init(red:red, green:green, blue:blue, alpha:alpha)
+    }
 }
 

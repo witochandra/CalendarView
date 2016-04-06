@@ -9,6 +9,6 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  CalendarView: 565ab5e74e55463915dcc28a53309ebe00d2bfcf
+  CalendarView: 12d4ab474726bc98a69c2501e5899532742a397d
 
 COCOAPODS: 0.39.0

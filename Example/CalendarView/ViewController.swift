@@ -17,8 +17,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        calendarView.titleContainerColor = UIColor.whiteColor()
-        calendarView.daysOfWeekContainerColor = UIColor.whiteColor()
         calendarView.delegate = self
         
         let calendar = NSCalendar.currentCalendar()
@@ -26,7 +24,7 @@ class ViewController: UIViewController {
         components.day = 1
         components.month = 1
         components.year = 2016
-        calendarView.setMinDate(calendar.dateFromComponents(components)!, maxDate: NSDate(timeIntervalSinceNow: 1000 * 24 * 3600))
+        // calendarView.setMinDate(calendar.dateFromComponents(components)!, maxDate: NSDate(timeIntervalSinceNow: 1000 * 24 * 3600))
         calendarView.setBeginDate(NSDate(), finishDate: NSDate(timeIntervalSinceNow: 24 * 3600))
     }
     
