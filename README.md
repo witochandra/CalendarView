@@ -1,6 +1,5 @@
 # CalendarView
 
-[![CI Status](http://img.shields.io/travis/Wito Chandra/CalendarView.svg?style=flat)](https://travis-ci.org/Wito Chandra/CalendarView)
 [![Version](https://img.shields.io/cocoapods/v/CalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
 [![License](https://img.shields.io/cocoapods/l/CalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
 [![Platform](https://img.shields.io/cocoapods/p/CalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
