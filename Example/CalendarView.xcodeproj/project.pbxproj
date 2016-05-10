@@ -42,7 +42,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		6208FC637C0E3DA6C1742B64 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		737B185D62066A66194425FF /* CalendarView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = CalendarView.podspec; path = ../CalendarView.podspec; sourceTree = "<group>"; };
+		737B185D62066A66194425FF /* WTCalendarView.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = WTCalendarView.podspec; path = ../WTCalendarView.podspec; sourceTree = "<group>"; };
 		9206F4FBF822C86F14B035FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		9265CC9C07A5D658F20F355E /* Pods_CalendarView_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CalendarView_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4CA1F4D9022974BAE958B13 /* Pods-CalendarView_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CalendarView_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-CalendarView_Tests/Pods-CalendarView_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 		607FACF51AFB993E008FA782 /* Podspec Metadata */ = {
 			isa = PBXGroup;
 			children = (
-				737B185D62066A66194425FF /* CalendarView.podspec */,
+				737B185D62066A66194425FF /* WTCalendarView.podspec */,
 				9206F4FBF822C86F14B035FF /* README.md */,
 				6208FC637C0E3DA6C1742B64 /* LICENSE */,
 			);
