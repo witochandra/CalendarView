@@ -1,14 +1,14 @@
 PODS:
-  - CalendarView (0.1.0)
+  - WTCalendarView (0.1.2)
 
 DEPENDENCIES:
-  - CalendarView (from `../`)
+  - WTCalendarView (from `../`)
 
 EXTERNAL SOURCES:
-  CalendarView:
+  WTCalendarView:
     :path: ../
 
 SPEC CHECKSUMS:
-  CalendarView: 12d4ab474726bc98a69c2501e5899532742a397d
+  WTCalendarView: 3ebcd095cb2522d1401cd9ec15152c0736423a1a
 
 COCOAPODS: 0.39.0

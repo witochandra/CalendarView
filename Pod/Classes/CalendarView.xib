@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarView" customModule="CalendarView">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CalendarView" customModule="WTCalendarView">
             <connections>
                 <outlet property="buttonNext" destination="QMs-pk-16N" id="erk-1J-ato"/>
                 <outlet property="buttonPrevious" destination="6ON-Tl-kye" id="vRF-4C-O6q"/>
