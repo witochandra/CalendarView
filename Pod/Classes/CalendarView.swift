@@ -125,7 +125,7 @@ public class CalendarView: UIView {
         view.autoresizingMask = [.FlexibleWidth, .FlexibleHeight]
         addSubview(view)
     
-        gestureDragDate = UIPanGestureRecognizer(target: self, action: Selector(stringLiteral: "handleDragDate:"))
+        gestureDragDate = UIPanGestureRecognizer(target: self, action: #selector(CalendarView.handleDragDate(_:)))
         gestureDragDate.delegate = self
         
         collectionView.addGestureRecognizer(gestureDragDate)

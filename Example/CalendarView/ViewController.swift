@@ -19,12 +19,10 @@ class ViewController: UIViewController {
         
         calendarView.delegate = self
         
-        let calendar = NSCalendar.currentCalendar()
         let components = NSDateComponents()
         components.day = 1
         components.month = 1
         components.year = 2016
-        // calendarView.setMinDate(calendar.dateFromComponents(components)!, maxDate: NSDate(timeIntervalSinceNow: 1000 * 24 * 3600))
         calendarView.setBeginDate(NSDate(), finishDate: NSDate(timeIntervalSinceNow: 24 * 3600))
     }
     
