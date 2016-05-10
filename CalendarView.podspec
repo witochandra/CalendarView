@@ -1,5 +1,5 @@
 Pod::Spec.new do |s|
-  s.name             = "CalendarView"
+  s.name             = "WTCalendarView"
   s.version          = "0.1.2"
   s.summary          = "Date range picker with customizeable components."
   s.homepage         = "https://github.com/witochandra/CalendarView"
