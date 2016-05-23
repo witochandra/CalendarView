@@ -18,7 +18,7 @@ class CalendarViewUtils: NSObject {
     override init() {
         calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
         calendar.timeZone = NSTimeZone.localTimeZone()
-        let url = NSBundle(forClass: self.dynamicType).URLForResource("CalendarView", withExtension: ".bundle")
+        let url = NSBundle(forClass: self.dynamicType).URLForResource("WTCalendarView", withExtension: ".bundle")
         bundle = NSBundle(URL: url!)!
         super.init()
     }

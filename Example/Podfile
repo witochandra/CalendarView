@@ -1,12 +1,10 @@
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'CalendarView_Example', :exclusive => true do
+target 'CalendarView_Example' do
   pod 'WTCalendarView', :path => '../'
 end
 
-target 'CalendarView_Tests', :exclusive => true do
+target 'CalendarView_Tests' do
   pod 'WTCalendarView', :path => '../'
-
-  
 end

@@ -37,7 +37,7 @@ public class CalendarView: UIView {
     private var endIndex: Int?
     private var draggingBeginDate = false
     
-    // MARK: - Public Properties
+    private let dateFormatter = NSDateFormatter()
     
     private var minDate: NSDate {
         didSet {
@@ -50,6 +50,8 @@ public class CalendarView: UIView {
             endDate = maxDate.endDayOfCurrentMonth().nextSaturday()
         }
     }
+    
+    // MARK: - Public Properties
     
     public var beginDate: NSDate? {
         guard let index = beginIndex else {
@@ -74,6 +76,13 @@ public class CalendarView: UIView {
     public var imageNextName = "ic_arrow_right_blue.png" {
         didSet {
             buttonNext.setImage(UIImage(named: imageNextName), forState: .Normal)
+        }
+    }
+    
+    public var localeIdentifier: String = "en_US" {
+        didSet {
+            dateFormatter.locale = NSLocale(localeIdentifier: localeIdentifier)
+            reload()
         }
     }
     
@@ -131,8 +140,6 @@ public class CalendarView: UIView {
         collectionView.addGestureRecognizer(gestureDragDate)
         
         collectionView.registerNib(UINib(nibName: "CalendarDayCell", bundle: CalendarViewUtils.instance.bundle), forCellWithReuseIdentifier: "DayCell")
-        
-        updateMonthYearViews()
         
         reload()
     }
@@ -203,6 +210,19 @@ public class CalendarView: UIView {
         
         labelTitle.textColor = CalendarViewTheme.instance.textColorForTitle
         
+        let date = minDate.lastSunday()
+        dateFormatter.dateFormat = "EEE"
+        print(dateFormatter.stringFromDate(date.dateByAddingDay(1)))
+        labelSunday.text = dateFormatter.stringFromDate(date)
+        labelMonday.text = dateFormatter.stringFromDate(date.dateByAddingDay(1))
+        labelTuesday.text = dateFormatter.stringFromDate(date.dateByAddingDay(2))
+        labelWednesday.text = dateFormatter.stringFromDate(date.dateByAddingDay(3))
+        labelThursday.text = dateFormatter.stringFromDate(date.dateByAddingDay(4))
+        labelFriday.text = dateFormatter.stringFromDate(date.dateByAddingDay(5))
+        labelSaturday.text = dateFormatter.stringFromDate(date.dateByAddingDay(6))
+        
+        updateMonthYearViews()
+        
         collectionView.reloadData()
     }
 }
@@ -220,9 +240,8 @@ extension CalendarView {
     }
     
     private func updateMonthYearViews() {
-        let formatter = NSDateFormatter()
-        formatter.dateFormat = "MMMM yyyy"
-        labelTitle.text = formatter.stringFromDate(currentFirstDayOfMonth)
+        dateFormatter.dateFormat = "MMMM yyyy"
+        labelTitle.text = dateFormatter.stringFromDate(currentFirstDayOfMonth)
     }
     
     private func scrollToPreviousMonth() {

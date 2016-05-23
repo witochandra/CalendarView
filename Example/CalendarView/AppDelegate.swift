@@ -8,7 +8,7 @@
 
 import UIKit
 
-import CalendarView
+import WTCalendarView
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {

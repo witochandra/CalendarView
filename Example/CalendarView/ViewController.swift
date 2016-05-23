@@ -8,7 +8,7 @@
 
 import UIKit
 
-import CalendarView
+import WTCalendarView
 
 class ViewController: UIViewController {
 
@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarView.localeIdentifier = "de_DE"
         calendarView.delegate = self
         
         let components = NSDateComponents()

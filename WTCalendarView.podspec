@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Pod/Classes/**/*.swift'
   s.resource_bundle = {
-    'CalendarView' => ['Pod/Assets/*.png', 'Pod/Classes/**/*.xib']
+    'WTCalendarView' => ['Pod/Assets/*.png', 'Pod/Classes/**/*.xib']
   }
 end
