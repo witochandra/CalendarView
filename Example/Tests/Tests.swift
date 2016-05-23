@@ -1,6 +1,6 @@
 import UIKit
 import XCTest
-import CalendarView
+import WTCalendarView
 
 class Tests: XCTestCase {
     

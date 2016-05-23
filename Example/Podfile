@@ -3,8 +3,8 @@ use_frameworks!
 
 target 'CalendarView_Example' do
   pod 'WTCalendarView', :path => '../'
+  target 'CalendarView_Tests' do
+    inherit! :search_paths
+  end
 end
 
-target 'CalendarView_Tests' do
-  pod 'WTCalendarView', :path => '../'
-end

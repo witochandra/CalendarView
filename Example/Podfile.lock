@@ -1,5 +1,5 @@
 PODS:
-  - WTCalendarView (0.1.3)
+  - WTCalendarView (0.2.0)
 
 DEPENDENCIES:
   - WTCalendarView (from `../`)
@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  WTCalendarView: 8c9327c0ad19392eacfd4aa8e5de7d92efba7628
+  WTCalendarView: c90d991866a5427b77107af4cb6c7e9006f99f39
 
-PODFILE CHECKSUM: 5ef5a88b11d0551761397d923b6128dd908dc0dc
+PODFILE CHECKSUM: 0198db1b1915c9d98f2fa779607122efe07363f8
 
 COCOAPODS: 1.0.0

@@ -211,8 +211,7 @@ public class CalendarView: UIView {
         labelTitle.textColor = CalendarViewTheme.instance.textColorForTitle
         
         let date = minDate.lastSunday()
-        dateFormatter.dateFormat = "EEE"
-        print(dateFormatter.stringFromDate(date.dateByAddingDay(1)))
+        dateFormatter.dateFormat = "EEEEE"
         labelSunday.text = dateFormatter.stringFromDate(date)
         labelMonday.text = dateFormatter.stringFromDate(date.dateByAddingDay(1))
         labelTuesday.text = dateFormatter.stringFromDate(date.dateByAddingDay(2))
