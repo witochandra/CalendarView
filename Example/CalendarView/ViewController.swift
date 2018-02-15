@@ -24,32 +24,32 @@ class ViewController: UIViewController {
         components.day = 1
         components.month = 1
         components.year = 2016
-        calendarView.setBeginDate(NSDate(), finishDate: NSDate(timeIntervalSinceNow: 24 * 3600))
+        calendarView.setBeginDate(Date(), finishDate: Date(timeIntervalSinceNow: 24 * 3600))
     }
     
-    override func viewDidAppear(animated: Bool) {
+    override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
     @IBAction func buttonTodayPressed() {
-        calendarView.setBeginDate(NSDate(), finishDate: NSDate(timeIntervalSinceNow: 24 * 3600))
+        calendarView.setBeginDate(Date(), finishDate: Date(timeIntervalSinceNow: 24 * 3600))
         calendarView.scrollToMonthOfDate(calendarView.beginDate!)
     }
     
     @IBAction func buttonTomorrowPressed() {
-        calendarView.setBeginDate(NSDate(timeIntervalSinceNow: 24 * 3600), finishDate: NSDate(timeIntervalSinceNow: 2 * 24 * 3600))
+        calendarView.setBeginDate(Date(timeIntervalSinceNow: 24 * 3600), finishDate: Date(timeIntervalSinceNow: 2 * 24 * 3600))
         calendarView.scrollToMonthOfDate(calendarView.beginDate!)
     }
 }
 
 extension ViewController: CalendarViewDelegate {
     
-    func calendarView(calendarView: CalendarView, didUpdateBeginDate beginDate: NSDate?) {
-        print("Update Begin Date \(beginDate)")
+    func calendarView(_ calendarView: CalendarView, didUpdateBeginDate beginDate: Date?) {
+        print("Update Begin Date \(String(describing: beginDate))")
     }
     
-    func calendarView(calendarView: CalendarView, didUpdateFinishDate finishDate: NSDate?) {
-        print("Update Finish Date \(finishDate)")
+    func calendarView(_ calendarView: CalendarView, didUpdateFinishDate finishDate: Date?) {
+        print("Update Finish Date \(String(describing: finishDate))")
     }
 }
 

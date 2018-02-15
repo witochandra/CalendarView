@@ -8,20 +8,20 @@
 
 import UIKit
 
-public class CalendarViewTheme: NSObject {
+open class CalendarViewTheme: NSObject {
 
-    public static let instance = CalendarViewTheme()
+    open static let instance = CalendarViewTheme()
 
-    public var bgColorForMonthContainer = UIColor.whiteColor()
-    public var bgColorForDaysOfWeekContainer = UIColor.whiteColor()
-    public var bgColorForCurrentMonth = UIColor.whiteColor()
-    public var bgColorForOtherMonth = UIColor.darkGrayColor()
-    public var colorForDivider = UIColor.lightGrayColor()
-    public var colorForSelectedDate = UIColor.blackColor()
-    public var colorForDatesRange = UIColor(white: 0, alpha: 0.1)
-    public var textColorForTitle = UIColor.blackColor()
-    public var textColorForDayOfWeek = UIColor.blackColor()
-    public var textColorForNormalDay = UIColor.blackColor()
-    public var textColorForDisabledDay = UIColor.lightGrayColor()
-    public var textColorForSelectedDay = UIColor.whiteColor()
+    open var bgColorForMonthContainer = UIColor.white
+    open var bgColorForDaysOfWeekContainer = UIColor.white
+    open var bgColorForCurrentMonth = UIColor.white
+    open var bgColorForOtherMonth = UIColor.darkGray
+    open var colorForDivider = UIColor.lightGray
+    open var colorForSelectedDate = UIColor.black
+    open var colorForDatesRange = UIColor(white: 0, alpha: 0.1)
+    open var textColorForTitle = UIColor.black
+    open var textColorForDayOfWeek = UIColor.black
+    open var textColorForNormalDay = UIColor.black
+    open var textColorForDisabledDay = UIColor.lightGray
+    open var textColorForSelectedDay = UIColor.white
 }

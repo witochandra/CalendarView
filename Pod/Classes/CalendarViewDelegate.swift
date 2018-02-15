@@ -10,6 +10,6 @@ import Foundation
 
 public protocol CalendarViewDelegate {
     
-    func calendarView(calendarView: CalendarView, didUpdateBeginDate beginDate: NSDate?)
-    func calendarView(calendarView: CalendarView, didUpdateFinishDate finishDate: NSDate?)
+    func calendarView(_ calendarView: CalendarView, didUpdateBeginDate beginDate: Date?)
+    func calendarView(_ calendarView: CalendarView, didUpdateFinishDate finishDate: Date?)
 }

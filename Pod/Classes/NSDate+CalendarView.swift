@@ -8,44 +8,44 @@
 
 import Foundation
 
-extension NSDate {
+extension Date {
     
-    func dateByAddingDay(day: Int) -> NSDate {
+    func dateByAddingDay(_ day: Int) -> Date {
         let calendar = CalendarViewUtils.instance.calendar
-        let diff = NSDateComponents()
+        var diff = DateComponents()
         diff.day = day
-        return calendar.dateByAddingComponents(diff, toDate: self, options: [])!
+        return (calendar as NSCalendar).date(byAdding: diff, to: self, options: [])!
     }
     
-    func lastSunday() -> NSDate {
+    func lastSunday() -> Date {
         let calendar = CalendarViewUtils.instance.calendar
-        let components = calendar.components(.Weekday, fromDate: self)
-        return dateByAddingDay(1 - components.weekday)
+        let components = (calendar as NSCalendar).components(.weekday, from: self)
+        return dateByAddingDay(1 - components.weekday!)
     }
     
-    func nextSaturday() -> NSDate {
+    func nextSaturday() -> Date {
         let calendar = CalendarViewUtils.instance.calendar
-        let components = calendar.components(.Weekday, fromDate: self)
-        return dateByAddingDay(7 - components.weekday)
+        let components = (calendar as NSCalendar).components(.weekday, from: self)
+        return dateByAddingDay(7 - components.weekday!)
     }
     
-    func firstDayOfCurrentMonth() -> NSDate {
+    func firstDayOfCurrentMonth() -> Date {
         let calendar = CalendarViewUtils.instance.calendar
-        let components = calendar.components(.Day, fromDate: self)
-        return dateByAddingDay(1 - components.day)
+        let components = (calendar as NSCalendar).components(.day, from: self)
+        return dateByAddingDay(1 - components.day!)
     }
     
-    func endDayOfCurrentMonth() -> NSDate {
+    func endDayOfCurrentMonth() -> Date {
         let calendar = CalendarViewUtils.instance.calendar
-        let diff = NSDateComponents()
+        var diff = DateComponents()
         diff.month = 1
-        return calendar.dateByAddingComponents(diff, toDate: self, options: [])!
+        return (calendar as NSCalendar).date(byAdding: diff, to: self, options: [])!
             .firstDayOfCurrentMonth()
             .dateByAddingDay(-1)
     }
     
-    func normalizeTime() -> NSDate {
+    func normalizeTime() -> Date {
         let calendar = CalendarViewUtils.instance.calendar
-        return calendar.dateBySettingHour(0, minute: 0, second: 0, ofDate: self, options: [])!
+        return (calendar as NSCalendar).date(bySettingHour: 0, minute: 0, second: 0, of: self, options: [])!
     }
 }

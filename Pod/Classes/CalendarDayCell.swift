@@ -9,25 +9,25 @@
 import UIKit
 
 public enum CalendarDayCellState {
-    case Normal
-    case Disabled
-    case Start(hasNext: Bool)
-    case Range
-    case End
+    case normal
+    case disabled
+    case start(hasNext: Bool)
+    case range
+    case end
 }
 
-public class CalendarDayCell: UICollectionViewCell {
+open class CalendarDayCell: UICollectionViewCell {
     
-    @IBOutlet private var viewBackground: UIView!
-    @IBOutlet private var viewSelectedCircle: UIView!
-    @IBOutlet private var viewNextRange: UIView!
-    @IBOutlet private var viewPreviousRange: UIView!
-    @IBOutlet private var labelDay: UILabel!
+    @IBOutlet fileprivate var viewBackground: UIView!
+    @IBOutlet fileprivate var viewSelectedCircle: UIView!
+    @IBOutlet fileprivate var viewNextRange: UIView!
+    @IBOutlet fileprivate var viewPreviousRange: UIView!
+    @IBOutlet fileprivate var labelDay: UILabel!
     
-    private(set) var state = CalendarDayCellState.Normal
-    private(set) var date = NSDate()
+    fileprivate(set) var state = CalendarDayCellState.normal
+    fileprivate(set) var date = Date()
     
-    public override func awakeFromNib() {
+    open override func awakeFromNib() {
         super.awakeFromNib()
     
         viewSelectedCircle.backgroundColor = CalendarViewTheme.instance.colorForSelectedDate
@@ -38,13 +38,13 @@ public class CalendarDayCell: UICollectionViewCell {
         viewNextRange.backgroundColor = CalendarViewTheme.instance.colorForDatesRange
     }
     
-    public func updateWithDate(date: NSDate, state: CalendarDayCellState, isCurrentMonth: Bool) {
+    open func updateWithDate(_ date: Date, state: CalendarDayCellState, isCurrentMonth: Bool) {
         self.date = date
         self.state = state
     
         let calendar = CalendarViewUtils.instance.calendar
-        let components = calendar.components(.Day, fromDate: date)
-        labelDay.text = "\(components.day)"
+        let components = (calendar as NSCalendar).components(.day, from: date)
+        labelDay.text = String(components.day ?? 0)
         
         viewSelectedCircle.backgroundColor = CalendarViewTheme.instance.colorForSelectedDate
         
@@ -54,35 +54,35 @@ public class CalendarDayCell: UICollectionViewCell {
             viewBackground.backgroundColor = CalendarViewTheme.instance.bgColorForOtherMonth
         }
         switch state {
-        case .Normal:
+        case .normal:
             if isCurrentMonth {
                 labelDay.textColor = CalendarViewTheme.instance.textColorForNormalDay
             } else {
                 labelDay.textColor = CalendarViewTheme.instance.textColorForDisabledDay
             }
-            viewSelectedCircle.hidden = true
-            viewNextRange.hidden = true
-            viewPreviousRange.hidden = true
-        case .Disabled:
+            viewSelectedCircle.isHidden = true
+            viewNextRange.isHidden = true
+            viewPreviousRange.isHidden = true
+        case .disabled:
             labelDay.textColor = CalendarViewTheme.instance.textColorForDisabledDay
-            viewSelectedCircle.hidden = true
-            viewNextRange.hidden = true
-            viewPreviousRange.hidden = true
-        case let .Start(hasNext):
+            viewSelectedCircle.isHidden = true
+            viewNextRange.isHidden = true
+            viewPreviousRange.isHidden = true
+        case let .start(hasNext):
             labelDay.textColor = CalendarViewTheme.instance.textColorForSelectedDay
-            viewSelectedCircle.hidden = false
-            viewNextRange.hidden = !hasNext
-            viewPreviousRange.hidden = true
-        case .Range:
+            viewSelectedCircle.isHidden = false
+            viewNextRange.isHidden = !hasNext
+            viewPreviousRange.isHidden = true
+        case .range:
             labelDay.textColor = CalendarViewTheme.instance.textColorForNormalDay
-            viewSelectedCircle.hidden = true
-            viewNextRange.hidden = false
-            viewPreviousRange.hidden = false
-        case .End:
+            viewSelectedCircle.isHidden = true
+            viewNextRange.isHidden = false
+            viewPreviousRange.isHidden = false
+        case .end:
             labelDay.textColor = CalendarViewTheme.instance.textColorForSelectedDay
-            viewSelectedCircle.hidden = false
-            viewNextRange.hidden = true
-            viewPreviousRange.hidden = false
+            viewSelectedCircle.isHidden = false
+            viewNextRange.isHidden = true
+            viewPreviousRange.isHidden = false
         }
     }
 }
