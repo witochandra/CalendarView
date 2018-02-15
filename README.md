@@ -5,7 +5,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/WTCalendarView.svg?style=flat)](http://cocoapods.org/pods/WTCalendarView)
 
 ## Screenshot
-# ![WTCalendarView](https://i.imgur.com/pyP5MGi.png)
+# ![WTCalendarView](https://i.imgur.com/MVfXGBQ.png)
 
 ## Usage
 
