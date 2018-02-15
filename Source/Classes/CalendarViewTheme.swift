@@ -10,6 +10,9 @@ import UIKit
 
 open class CalendarViewTheme {
 
+    public init() {
+    }
+
     open var bgColorForMonthContainer = UIColor(hex: 0xE0E3E6)
     open var bgColorForDaysOfWeekContainer = UIColor(hex: 0xE0E3E6)
     open var bgColorForCurrentMonth = UIColor(hex: 0xE0E3E6)

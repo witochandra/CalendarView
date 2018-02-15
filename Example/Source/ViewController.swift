@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        calendarView.theme = CalendarViewTheme()
         calendarView.localeIdentifier = "de_DE"
         calendarView.delegate = self
         
