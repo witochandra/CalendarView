@@ -1,8 +1,8 @@
 # CalendarView
-
-[![Version](https://img.shields.io/cocoapods/v/CalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
-[![License](https://img.shields.io/cocoapods/l/CalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
-[![Platform](https://img.shields.io/cocoapods/p/CalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
+[![Build Status](https://travis-ci.org/witochandra/WTCalendarView.svg?branch=master)](https://travis-ci.org/witochandra/WTCalendarView)
+[![Version](https://img.shields.io/cocoapods/v/WTCalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
+[![License](https://img.shields.io/cocoapods/l/WTCalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
+[![Platform](https://img.shields.io/cocoapods/p/WTCalendarView.svg?style=flat)](http://cocoapods.org/pods/CalendarView)
 
 ## Usage
 
