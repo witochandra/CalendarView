@@ -13,13 +13,11 @@ class CalendarViewUtils: NSObject {
     static let instance = CalendarViewUtils()
     
     let calendar: Calendar
-    let bundle: Bundle
     
     override init() {
         var calendar = Calendar(identifier: Calendar.Identifier.gregorian)
         calendar.timeZone = TimeZone.autoupdatingCurrent
         self.calendar = calendar
-        self.bundle = Bundle(for: CalendarViewUtils.self)
         super.init()
     }
 }

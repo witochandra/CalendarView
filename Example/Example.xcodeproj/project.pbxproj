@@ -29,6 +29,13 @@
 			remoteGlobalIDString = 3B914A3F203599510095ED67;
 			remoteInfo = WTCalendarViewTests;
 		};
+		3BDA1D672035B32A00B569E2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3BDA1D5C20359D6200B569E2 /* WTCalendarView.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 3B914A35203599510095ED67;
+			remoteInfo = WTCalendarView;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +113,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3BDA1D682035B32A00B569E2 /* PBXTargetDependency */,
 			);
 			name = Example;
 			productName = CalendarView;
@@ -192,6 +200,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3BDA1D682035B32A00B569E2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = WTCalendarView;
+			targetProxy = 3BDA1D672035B32A00B569E2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		607FACD91AFB9204008FA782 /* Main.storyboard */ = {

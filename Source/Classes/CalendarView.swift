@@ -86,6 +86,12 @@ open class CalendarView: UIView {
         }
     }
     
+    open var theme: CalendarViewTheme = CalendarViewTheme() {
+        didSet {
+            reload()
+        }
+    }
+    
     open var delegate: CalendarViewDelegate?
     
     // MARK: - Constructors
@@ -129,7 +135,8 @@ open class CalendarView: UIView {
     // MARK: - Methods
     
     fileprivate func loadViews() {
-        let view = CalendarViewUtils.instance.bundle.loadNibNamed("CalendarView", owner: self, options: nil)?.first as! UIView
+        let bundle = Bundle(for: CalendarView.self)
+        let view = bundle.loadNibNamed("CalendarView", owner: self, options: nil)?.first as! UIView
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         addSubview(view)
@@ -139,7 +146,7 @@ open class CalendarView: UIView {
         
         collectionView.addGestureRecognizer(gestureDragDate)
         
-        collectionView.register(UINib(nibName: "CalendarDayCell", bundle: CalendarViewUtils.instance.bundle), forCellWithReuseIdentifier: "DayCell")
+        collectionView.register(UINib(nibName: "CalendarDayCell", bundle: bundle), forCellWithReuseIdentifier: "DayCell")
         
         reload()
     }
@@ -196,19 +203,19 @@ open class CalendarView: UIView {
     }
     
     open func reload() {
-        viewTitleContainer.backgroundColor = CalendarViewTheme.instance.bgColorForMonthContainer
-        viewDaysOfWeekContainer.backgroundColor = CalendarViewTheme.instance.bgColorForDaysOfWeekContainer
-        viewBackground.backgroundColor = CalendarViewTheme.instance.bgColorForOtherMonth
-        labelSunday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
-        labelMonday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
-        labelTuesday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
-        labelWednesday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
-        labelThursday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
-        labelFriday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
-        labelSaturday.textColor = CalendarViewTheme.instance.textColorForDayOfWeek
-        viewDivider.backgroundColor = CalendarViewTheme.instance.colorForDivider
+        viewTitleContainer.backgroundColor = theme.bgColorForMonthContainer
+        viewDaysOfWeekContainer.backgroundColor = theme.bgColorForDaysOfWeekContainer
+        viewBackground.backgroundColor = theme.bgColorForOtherMonth
+        labelSunday.textColor = theme.textColorForDayOfWeek
+        labelMonday.textColor = theme.textColorForDayOfWeek
+        labelTuesday.textColor = theme.textColorForDayOfWeek
+        labelWednesday.textColor = theme.textColorForDayOfWeek
+        labelThursday.textColor = theme.textColorForDayOfWeek
+        labelFriday.textColor = theme.textColorForDayOfWeek
+        labelSaturday.textColor = theme.textColorForDayOfWeek
+        viewDivider.backgroundColor = theme.colorForDivider
         
-        labelTitle.textColor = CalendarViewTheme.instance.textColorForTitle
+        labelTitle.textColor = theme.textColorForTitle
         
         let date = minDate.lastSunday()
         dateFormatter.dateFormat = "EEEEE"
@@ -294,7 +301,7 @@ extension CalendarView: UICollectionViewDataSource, UICollectionViewDelegateFlow
         let currentComponents = (calendar as NSCalendar).components([.month, .year], from: currentFirstDayOfMonth)
         let isCurrentMonth = components.month == currentComponents.month && components.year == currentComponents.year
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DayCell", for: indexPath) as! CalendarDayCell
-        cell.updateWithDate(date, state: state, isCurrentMonth: isCurrentMonth)
+        cell.update(theme: theme, date: date, state: state, isCurrentMonth: isCurrentMonth)
         return cell
     }
     
