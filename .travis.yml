@@ -5,5 +5,5 @@ script:
 - set -o pipefail
 - xcodebuild -version
 - xcodebuild -showsdks
-- xcodebuild test -workspace WTCalendarView.xcworkspace -scheme CalendarViewExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
+- xcodebuild build -workspace WTCalendarView.xcworkspace -scheme CalendarViewExample -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO | xcpretty
 - pod lib lint
